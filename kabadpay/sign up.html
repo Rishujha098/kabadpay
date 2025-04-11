@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - KabadPay</title>
+  <style>
+    body {
+      background-color: #181818;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .signup-box {
+      background-color: #2c2f38;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(76, 255, 0, 0.2); /* greenish glow */
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #6CFF00;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid #444;
+      background-color: #333;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border: 1px solid #6CFF00;
+      background-color: #444;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #6CFF00;
+      color: #111;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #4CAF50;
+    }
+
+    .note {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .note a {
+      color: #6CFF00;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .note a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <h2>Sign Up for KabadPay</h2>
+    <form>
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" placeholder="Enter your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Create password" required>
+
+      <button type="submit">Register</button>
+    </form>
+    <div class="note">
+      Already have an account? <a href="login.html">Sign In</a>
+    </div>
+  </div>
+</body>
+</html>

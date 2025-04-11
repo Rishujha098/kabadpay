@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nearby Scrap Vendors - KabadPay</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #0b0b0b;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #00ff88;
+      margin-bottom: 10px;
+    }
+
+    #user-location {
+      font-size: 16px;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    .vendor-card {
+      background-color: #161616;
+      border: 1px solid #2e2e2e;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 255, 136, 0.1);
+    }
+
+    .vendor-card:hover {
+      transform: scale(1.01);
+      box-shadow: 0 4px 20px rgba(0, 255, 136, 0.2);
+    }
+
+    .vendor-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .vendor-info {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 10px;
+    }
+
+    .rate-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 10px 0 15px;
+    }
+
+    .rate-list li {
+      margin-bottom: 4px;
+    }
+
+    .vendor-card button {
+      background-color: #00ff88;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .vendor-card button:hover {
+      background-color: #00cc6a;
+    }
+  </style>
+</head>
+<body>
+  <h1>Nearby Scrap Vendors</h1>
+  <p id="user-location"></p>
+  <div id="vendorList"></div>
+
+  <script>
+    const vendors = [
+      { name: "GreenKabadi", distance: 3.2, rates: { Newspaper: 9, Plastic: 6, Metal: 18 } },
+      { name: "RecycleNow", distance: 7.5, rates: { Newspaper: 10, Plastic: 5, Metal: 20 } },
+      { name: "Urban Scrap", distance: 9.8, rates: { Newspaper: 8.5, Plastic: 5.5, Metal: 19 } },
+      { name: "FastKabadi", distance: 10.5, rates: { Newspaper: 10.5, Plastic: 6.2, Metal: 21 } },
+    ];
+
+    // Fetch scrap request details from localStorage
+    const request = JSON.parse(localStorage.getItem("scrapRequest")) || {};
+    const estimate = request.estimatedPrice || 0; // Default to 0 if no estimate
+    const address = request.address || "Unknown";
+
+    document.getElementById("user-location").innerText = `Your Address: ${address} | Estimated Scrap Value: ₹${estimate}`;
+
+    const filtered = vendors.filter(v => v.distance <= 10);
+    const list = document.getElementById("vendorList");
+
+    if (filtered.length === 0) {
+      list.innerHTML = "<p>No vendors found within 10km.</p>";
+    } else {
+      filtered.forEach(vendor => {
+        const div = document.createElement("div");
+        div.className = "vendor-card";
+        div.innerHTML = `
+          <div class="vendor-name">${vendor.name}</div>
+          <div class="vendor-info">Distance: ${vendor.distance} km</div>
+          <div class="vendor-info">Rates:</div>
+          <ul class="rate-list">
+            ${Object.entries(vendor.rates).map(([type, price]) => `<li>🟢 ${type}: ₹${price}/kg</li>`).join("")}
+          </ul>
+          <button onclick="sendRequest('${vendor.name}')">Send Scrap Request</button>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    function sendRequest(vendorName) {
+      localStorage.setItem("selectedVendor", vendorName);
+      window.location.href = "send_req.html";
+    }
+  </script>
+</body>
+</html>

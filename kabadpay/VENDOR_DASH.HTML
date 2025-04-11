@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nearby Scrap Vendors - KabadPay</title>
+  <style>
+    body {
+      background-color: #0b0b0b;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      padding: 0;
+      margin: 0;
+    }
+    header {
+      background-color: #333;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    h1 {
+      font-size: 28px;
+      color: #00ff88;
+      margin-bottom: 10px;
+    }
+    #priceEstimate {
+      font-size: 22px;
+      color: #6CFF00;
+      font-weight: 600;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .vendor-info {
+      background-color: #2a2a2a;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .vendor-info p {
+      font-size: 18px;
+      color: #fff;
+      margin: 8px 0;
+    }
+    .action-buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .action-buttons button {
+      padding: 10px 20px;
+      background-color: #6CFF00;
+      color: #111;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .action-buttons button:hover {
+      background-color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nearby Scrap Vendors</h1>
+  </header>
+  
+  <div id="priceEstimate"></div> <!-- This is where the estimated price will appear -->
+
+  <!-- Vendor Information Section -->
+  <div class="vendor-info">
+    <h2>Vendor Details</h2>
+    <p><strong>Vendor Name:</strong> ABC Scrap Shop</p>
+    <p><strong>Location:</strong> XYZ Street, City Name</p>
+    <p><strong>Contact:</strong> 9876543210</p>
+    <p><strong>Scrap Type:</strong> Newspaper, Plastic</p>
+    <p><strong>Weight:</strong> 5 kg</p>
+  </div>
+
+  <!-- Actions -->
+  <div class="action-buttons">
+    <button onclick="acceptOffer()">Accept Offer</button>
+    <button onclick="rejectOffer()">Reject Offer</button>
+  </div>
+
+  <script>
+    window.onload = function() {
+      // Get the estimated price from localStorage
+      const estimatedPrice = localStorage.getItem("estimatedPrice");
+
+      // Display the estimated price if it's available
+      if (estimatedPrice) {
+        document.getElementById("priceEstimate").innerText = `Estimated Price: ₹${estimatedPrice}`;
+      } else {
+        document.getElementById("priceEstimate").innerText = "No estimated price available.";
+      }
+    };
+
+    // Function for accepting the offer
+    function acceptOffer() {
+      alert("You have accepted the offer.");
+      // Here you could trigger additional logic like notifying the seller, marking the request as accepted, etc.
+    }
+
+    // Function for rejecting the offer
+    function rejectOffer() {
+      alert("You have rejected the offer.");
+      // Additional logic can be added here for rejecting the request.
+    }
+  </script>
+</body>
+</html>

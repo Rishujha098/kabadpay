@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KabadPay - Payment</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      color: #76ff03; /* Green color for heading */
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #ddd;
+      line-height: 1.6;
+    }
+
+    input[type="text"] {
+      padding: 15px;
+      font-size: 1.1rem;
+      width: 100%;
+      max-width: 450px;
+      border: 2px solid #444;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      background-color: #333;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #76ff03; /* Green focus border */
+      background-color: #444;
+    }
+
+    button {
+      padding: 14px 28px;
+      background: #76ff03; /* Green background for button */
+      color: #121212;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #64dd17; /* Lighter green on hover */
+      transform: scale(1.05);
+    }
+
+    button:active {
+      background-color: #43a047; /* Darker green on active */
+    }
+
+    /* Shadow for the card */
+    .vendor-card {
+      background-color: #161616;
+      border: 1px solid #2e2e2e;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 12px rgba(118, 255, 3, 0.2); /* Green shadow for the card */
+    }
+
+    .vendor-card:hover {
+      transform: scale(1.01);
+      box-shadow: 0 4px 20px rgba(118, 255, 3, 0.4); /* Green shadow on hover */
+    }
+  </style>
+</head>
+<body>
+  <h1>✅ Scrap Request Submitted!</h1>
+  <p>Your scrap pickup request has been successfully submitted. Please provide your UPI ID to receive payment.</p>
+  <input type="text" placeholder="Enter your UPI ID (e.g., user@upi)" />
+  <button ><a style="text-decoration: none;" href="upi_id_subm.html">Submit UPI</a></button>
+</body>
+</html>
